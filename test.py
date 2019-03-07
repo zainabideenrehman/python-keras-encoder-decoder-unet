@@ -12,7 +12,7 @@ image_ext = np.resize(image, (1,160,240,3))
 
 segmented = model.predict(image_ext)
 segmented = np.array(segmented[0])
-segmented = np.array((segmented + 1.0) * 127.5, np.uint8)
+segmented = np.array((segmented) * 255, np.uint8)
 
 _, segmented = cv2.threshold(segmented, 200, 255, cv2.THRESH_BINARY)
 segmented = cv2.cvtColor(segmented, cv2.COLOR_GRAY2RGB)
