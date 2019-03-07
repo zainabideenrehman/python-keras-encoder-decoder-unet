@@ -16,7 +16,7 @@ def load_data(images):
         label = cv2.imread('label-images/' + str(i) + '.jpg')
         label = cv2.cvtColor(label, cv2.COLOR_BGR2GRAY)
         label = np.reshape(label, (np.shape(label)[0], np.shape(label)[1], 1))
-        label = label / 127.5 - 1.0
+        label = label / 255
         labels[i] = label
     return features, labels
 
